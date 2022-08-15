@@ -1,6 +1,12 @@
 import express from 'express';
 import morgan from 'morgan';
 import { create } from 'express-handlebars';
+import Handlebars from 'handlebars';
+// const Handlebars = require('handlebars');
+// Import function exported by newly installed node modules.
+// const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
+import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access';
+
 import path from 'path';
 // Routes
 import indexRoutes from './routes';
@@ -25,6 +31,7 @@ class Application {
         partialsDir: path.join(this.app.get("views"), 'partials'),
         defaultLayout: 'main',
         extname: '.hbs',
+        handlebars: allowInsecurePrototypeAccess(Handlebars)
       }).engine
     );
     this.app.set('view engine', '.hbs');

@@ -1,4 +1,6 @@
 {{#each tasks}}
   <h3>{{title}}</h3>
   <p>{{description}}</p>
+  <a href="/tasks/delete/{{_id}}">DELETE</a>
+  <a href="/tasks/edit/{{_id}}">EDIT</a>
 {{/each}}
